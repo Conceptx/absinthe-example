@@ -38,8 +38,11 @@ defmodule Gazol.Mixfile do
       {:httpoison, "~> 1.6"},
       {:poison, "~> 3.1.0"},
       {:absinthe, "~> 1.4.0"},
+      {:absinthe_plug, "~> 1.4.0"},
+      {:absinthe_ecto, "~> 0.1.3"},
       {:dataloader, "~> 1.0.4"},
-      {:comeonin, "~> 5.1.3"}
+      {:comeonin, "~> 5.1.3"},
+      {:pbkdf2_elixir, "~> 1.0"}
     ]
   end
 

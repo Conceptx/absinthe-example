@@ -38,7 +38,8 @@ defmodule Gazol.Mixfile do
       {:httpoison, "~> 1.6"},
       {:poison, "~> 3.1.0"},
       {:absinthe, "~> 1.4.0"},
-      {:dataloader, "~> 1.0.4"}
+      {:dataloader, "~> 1.0.4"},
+      {:comeonin, "~> 5.1.3"}
     ]
   end
 

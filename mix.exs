@@ -17,7 +17,7 @@ defmodule Gazol.Mixfile do
   def application do
     [
       mod: {Gazol.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :absinthe_plug]
     ]
   end
 
@@ -38,12 +38,14 @@ defmodule Gazol.Mixfile do
       {:httpoison, "~> 1.6"},
       {:poison, "~> 3.1.0"},
       {:absinthe, "~> 1.4.0"},
-      {:absinthe_plug, "~> 1.4.0"},
+      {:absinthe_plug, "~> 1.0", override: true},
+      {:absinthe_phoenix, "~> 1.4.0"},
       {:absinthe_ecto, "~> 0.1.3"},
       {:dataloader, "~> 1.0.4"},
       {:comeonin, "~> 5.1.3"},
       {:pbkdf2_elixir, "~> 1.0"},
-      {:timex, "~> 3.6.1"}
+      {:timex, "~> 3.6.1"},
+      {:jason, "~> 1.1"}
     ]
   end
 

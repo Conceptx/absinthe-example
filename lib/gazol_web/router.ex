@@ -1,17 +1,28 @@
 defmodule GazolWeb.Router do
-  use GazolWeb, :router
+  use Plug.Router
 
-  pipeline :api do
-    plug(:accepts, ["json"])
-  end
+  plug(Plug.Parsers,
+    parsers: [:urlencoded, :multipart, :json, Absinthe.Plug.Parser],
+    pass: ["*/*"],
+    json_decoder: Jason
+  )
 
-  scope "/api" do
-    pipe_through(:api)
+  plug(Plug.Logger)
+  plug(:match)
+  plug(:dispatch)
 
-    forward("/graphql", Absinthe.Plug, schema: GazolWeb.Schema)
+  forward("/graphql",
+    to: Absinthe.Plug,
+    init_opts: [schema: GazolWeb.Schema]
+  )
 
-    if Mix.env() == :dev do
-      forward("/graphiql", Absinthe.Plug.GraphiQL, schema: GazolWeb.Schema)
-    end
+  if Mix.env() == :dev do
+    forward("/graphiql",
+      to: Absinthe.Plug.GraphiQL,
+      init_opts: [
+        schema: GazolWeb.Schema,
+        interface: :simple
+      ]
+    )
   end
 end

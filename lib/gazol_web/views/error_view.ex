@@ -1,5 +1,5 @@
 defmodule GazolWeb.ErrorView do
-  use GazolWeb, :view
+  # use GazolWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

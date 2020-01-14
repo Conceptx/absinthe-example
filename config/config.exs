@@ -14,14 +14,18 @@ config :gazol, GazolWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "moBK9H/abvBrr+lvlfBjeQH/+sjyLIYk39nEiiJINXmmEU5YlvJipXiOyesbRgt5",
   render_errors: [view: GazolWeb.ErrorView, accepts: ~w(json)],
-  pubsub: [name: Gazol.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Gazol.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
+# Guardian config
+config :gazol, Gazol.Guardian,
+  issuer: "gazol",
+  secret_key: "5e2Edlj5C904NE3JNVLsO8J5dR0KxZlpj+6XIszykOZNBzyOsW7mL6nhD167UfH6"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"

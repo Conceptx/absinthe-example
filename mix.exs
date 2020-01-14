@@ -45,7 +45,8 @@ defmodule Gazol.Mixfile do
       {:comeonin, "~> 5.1.3"},
       {:pbkdf2_elixir, "~> 1.0"},
       {:timex, "~> 3.6.1"},
-      {:jason, "~> 1.1"}
+      {:jason, "~> 1.1"},
+      {:guardian, "~> 2.0"}
     ]
   end
 

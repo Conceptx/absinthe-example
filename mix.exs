@@ -42,7 +42,8 @@ defmodule Gazol.Mixfile do
       {:absinthe_ecto, "~> 0.1.3"},
       {:dataloader, "~> 1.0.4"},
       {:comeonin, "~> 5.1.3"},
-      {:pbkdf2_elixir, "~> 1.0"}
+      {:pbkdf2_elixir, "~> 1.0"},
+      {:timex, "~> 3.6.1"}
     ]
   end
 

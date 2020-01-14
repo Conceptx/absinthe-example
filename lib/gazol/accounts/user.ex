@@ -35,7 +35,7 @@ defmodule Gazol.Accounts.User do
   end
 
   defp hash_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
-    changeset
+    change(changeset, Pbkdf2.add_hash(password))
   end
 
   defp hash_password(changeset) do

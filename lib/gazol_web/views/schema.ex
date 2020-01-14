@@ -2,6 +2,7 @@ defmodule GazolWeb.Schema do
   use Absinthe.Schema
 
   alias GazolWeb.Resolvers
+  alias GazolWeb.Schema.Middleware
 
   # import Types
   import_types(GazolWeb.Schema.Types)
@@ -10,6 +11,7 @@ defmodule GazolWeb.Schema do
     @desc "Get a list of all users"
     field :users, list_of(:user_type) do
       # Resolver
+      middleware(Middleware.Authorize, :any)
       resolve(&Resolvers.UserResolver.users/3)
     end
   end
